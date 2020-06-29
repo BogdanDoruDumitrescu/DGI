@@ -5,6 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.fis.maven.Services.AdminService;
+import org.fis.maven.Services.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,6 +25,9 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        AdminService.setPath("src/main/resources/Admin.json");
+        UserService.setPath("src/main/resources/User.json");
+
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("Menu.fxml"));
         primaryStage.setTitle("Menu");
         primaryStage.setScene(new Scene(root,600,600));
