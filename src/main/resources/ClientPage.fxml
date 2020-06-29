@@ -47,5 +47,6 @@
       </Label>
       <Button fx:id="logoutButton" layoutX="7.0" layoutY="7.0" mnemonicParsing="false" onAction="#logOut" text="Log Out" />
       <Button layoutX="489.0" layoutY="248.0" mnemonicParsing="false" onAction="#send" text="Send Request" />
+      <Label fx:id="error" layoutX="91.0" layoutY="354.0" text="Amount is under 50!" />
    </children>
 </AnchorPane>
