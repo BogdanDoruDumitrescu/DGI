@@ -54,6 +54,10 @@ public class DriverPageController {
 
     @FXML
     public void withdrawButton() {
+        current.setCredit(current.getCredit() - Integer.parseInt(moneyField.getText()));
+        UserService.writeUser();
+
+        this.initialize();
     }
 
     @FXML
