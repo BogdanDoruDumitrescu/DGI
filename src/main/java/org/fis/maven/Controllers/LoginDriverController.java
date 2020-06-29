@@ -50,7 +50,26 @@ public class LoginDriverController {
         try {
             if(UserService.checkCredentials(idField.getText(), UserService.encodePassword(passField.getText()))){
                 error.setText("");
-                //redirectionare
+                try
+                {
+                    for(User i:UserService.getU()){
+                        if(i.getUsername().equals(idField.getText())&&i.getRole().equals("Driver")){
+                            current = i;
+                            break;
+                        }
+                    }
+
+                    current.setLogged(true);
+
+                    Stage stage=(Stage)idField.getScene().getWindow();
+                    Parent ceva = FXMLLoader.load(getClass().getClassLoader().getResource("DriverPage.fxml"));
+                    stage.setTitle("Driver Page");
+                    stage.setScene(new Scene(ceva,600,600));
+                    stage.show();
+
+                }catch(IOException e) {
+                    System.out.println(e);
+                }
             }else{
                 throw new UserPasswordIncorrect();
             }
