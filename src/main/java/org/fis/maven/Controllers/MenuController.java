@@ -47,6 +47,14 @@ public class MenuController {
 
     @FXML
     public void loginDriver(){
-        //login driver
+        try {
+            Stage stage = (Stage) id.getScene().getWindow();
+            Parent parent = FXMLLoader.load(getClass().getClassLoader().getResource("LoginDriver.fxml"));
+            stage.setTitle("Login Driver");
+            stage.setScene(new Scene(parent, 600,600));
+            stage.show();
+        }catch (IOException e){
+            System.out.println(e);
+        }
     }
 }
