@@ -7,7 +7,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
-
 import java.io.IOException;
 
 public class MenuController {
@@ -17,7 +16,15 @@ public class MenuController {
 
     @FXML
     public void registerButton(){
-        //register
+        try {
+            Stage stage = (Stage) id.getScene().getWindow();
+            Parent parent = FXMLLoader.load(getClass().getClassLoader().getResource("Register.fxml"));
+            stage.setTitle("Register");
+            stage.setScene(new Scene(parent, 600,600));
+            stage.show();
+        }catch (IOException e){
+            System.out.println(e);
+        }
     }
 
     @FXML
