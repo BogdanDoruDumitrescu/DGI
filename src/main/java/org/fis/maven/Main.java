@@ -25,8 +25,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        AdminService.setPath("src/main/resources/Admin.json");
-        UserService.setPath("src/main/resources/User.json");
+        AdminService.setPath("src/main/resources/Admins.json");
+        UserService.setPath("src/main/resources/Users.json");
 
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("Menu.fxml"));
         primaryStage.setTitle("Menu");
