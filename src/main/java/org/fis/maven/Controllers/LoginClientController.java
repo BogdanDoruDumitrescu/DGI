@@ -8,9 +8,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import org.fis.maven.Exceptions.UserPasswordIncorrect;
+import org.fis.maven.Models.User;
 import org.fis.maven.Services.UserService;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class LoginClientController {
     @FXML
@@ -19,9 +22,12 @@ public class LoginClientController {
     private TextField usernameField;
     @FXML
     private PasswordField passwordField;
+    @FXML
+    private Label error;
 
     @FXML
     public void initialize(){
+        error.setText("");
         UserService.loadUser();
     }
 
@@ -43,6 +49,15 @@ public class LoginClientController {
 
 
     public void login() {
-
+        try {
+            if (UserService.checkCredentials(usernameField.getText(), UserService.encodePassword(passwordField.getText()))){
+                error.setText("");
+                //redirectionare
+            }
+            else
+                throw new UserPasswordIncorrect();
+        }catch (UserPasswordIncorrect e){
+            error.setText("Incorrect username or password!");
+        }
     }
 }
