@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import org.fis.maven.Exceptions.LowAmount;
 import org.fis.maven.Models.Race;
 import org.fis.maven.Models.User;
 import org.fis.maven.Services.RaceService;
@@ -38,6 +39,8 @@ public class ClientPageController {
     private Label userLabel;
     @FXML
     private TextField moneyField;
+    @FXML
+    private Label error;
 
     private static User current;
 
@@ -69,6 +72,8 @@ public class ClientPageController {
 
         userLabel.setText(String.valueOf(current.getUsername()));
         creditLabel.setText(String.valueOf(current.getCredit()));
+
+        error.setText("");
     }
 
     public void logOut() {
@@ -85,9 +90,15 @@ public class ClientPageController {
     }
 
     public void addMoney() {
-        current.setCredit(current.getCredit() + Integer.parseInt(moneyField.getText()));
-        UserService.writeUser();
-        this.initialize();
+        try {
+            if (Integer.parseInt(moneyField.getText()) < 50)
+                throw new LowAmount();
+            current.setCredit(current.getCredit() + Integer.parseInt(moneyField.getText()));
+            UserService.writeUser();
+            this.initialize();
+        }catch (LowAmount e){
+            error.setText("Amount is under 50!");
+        }
     }
 
     public void send(){
