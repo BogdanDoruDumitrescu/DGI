@@ -52,7 +52,23 @@ public class LoginClientController {
         try {
             if (UserService.checkCredentials(usernameField.getText(), UserService.encodePassword(passwordField.getText()))){
                 error.setText("");
-                //redirectionare
+                try{
+                    ArrayList<User> u = UserService.getU();
+                    for(User i:u){
+                        if(usernameField.getText().equals(i.getUsername())&&i.getRole().equals("Client")){
+                            i.setLogged(true);
+                        }
+                    }
+
+                    Stage stage=(Stage)id.getScene().getWindow();
+                    Parent ceva = FXMLLoader.load(getClass().getClassLoader().getResource("ClientPage.fxml"));
+                    stage.setTitle("Client Page");
+                    stage.setScene(new Scene(ceva,800,600));
+                    stage.show();
+
+                }catch (Exception e){
+                    System.out.println(e);
+                }
             }
             else
                 throw new UserPasswordIncorrect();
