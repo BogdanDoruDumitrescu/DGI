@@ -85,7 +85,9 @@ public class ClientPageController {
     }
 
     public void addMoney() {
-
+        current.setCredit(current.getCredit() + Integer.parseInt(moneyField.getText()));
+        UserService.writeUser();
+        this.initialize();
     }
 
     public void send(){
