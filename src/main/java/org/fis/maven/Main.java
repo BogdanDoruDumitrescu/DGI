@@ -5,7 +5,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.fis.maven.Models.Race;
 import org.fis.maven.Services.AdminService;
+import org.fis.maven.Services.RaceService;
 import org.fis.maven.Services.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,6 +29,9 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         AdminService.setPath("src/main/resources/Admins.json");
         UserService.setPath("src/main/resources/Users.json");
+        RaceService.setPath("src/main/resources/Race.json");
+
+        Race.setPricePerKm(0);
 
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("Menu.fxml"));
         primaryStage.setTitle("Menu");
