@@ -8,6 +8,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import org.fis.maven.Exceptions.InsufficientMoney;
 import org.fis.maven.Models.User;
 import org.fis.maven.Services.UserService;
 
@@ -22,6 +23,8 @@ public class DriverPageController {
     private Label creditLabel;
     @FXML
     private TextField moneyField;
+    @FXML
+    private Label error;
 
     private User current;
 
@@ -34,6 +37,8 @@ public class DriverPageController {
 
         creditLabel.setText(String.valueOf(current.getCredit()));
         statusLabel.setText(current.getStatus());
+
+        error.setText("");
     }
 
     @FXML
@@ -54,10 +59,18 @@ public class DriverPageController {
 
     @FXML
     public void withdrawButton() {
-        current.setCredit(current.getCredit() - Integer.parseInt(moneyField.getText()));
-        UserService.writeUser();
+        try {
+            if (current.getCredit() - Integer.parseInt(moneyField.getText()) >= 0) {
+                current.setCredit(current.getCredit() - Integer.parseInt(moneyField.getText()));
+                UserService.writeUser();
 
-        this.initialize();
+                this.initialize();
+            } else {
+                throw new InsufficientMoney();
+            }
+        }catch (InsufficientMoney e){
+            error.setText("Insufficient money!");
+        }
     }
 
     @FXML
