@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fis.maven.Controllers.MenuController">
+   <children>
+      <Label fx:id="id" alignment="CENTER" contentDisplay="CENTER" layoutX="187.0" layoutY="42.0" prefHeight="47.0" prefWidth="201.0" text="Rent a Cab App" />
+      <Button layoutX="247.0" layoutY="149.0" mnemonicParsing="false" onAction="#loginClient" text="Login Client" />
+      <Button layoutX="247.0" layoutY="200.0" mnemonicParsing="false" onAction="#loginDriver" text="Login Driver" />
+      <Button layoutX="246.0" layoutY="246.0" mnemonicParsing="false" onAction="#registerButton" prefHeight="26.0" prefWidth="81.0" text="Register" />
+      <Button layoutX="228.0" layoutY="103.0" mnemonicParsing="false" onAction="#loginAdministrator" text="Login Adminstrator" />
+   </children>
+</AnchorPane>
