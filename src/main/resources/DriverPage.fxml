@@ -32,5 +32,6 @@
       <Label fx:id="statusLabel" layoutX="160.0" layoutY="300.0" text="Label" />
       <Button layoutX="461.0" layoutY="27.0" mnemonicParsing="false" onAction="#races" text="My races" />
       <Button layoutX="467.0" layoutY="80.0" mnemonicParsing="false" onAction="#requests" text="Cereri" />
+      <Label fx:id="error" layoutX="416.0" layoutY="258.0" text="Insufficient money!" />
    </children>
 </AnchorPane>
