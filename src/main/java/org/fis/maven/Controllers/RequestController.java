@@ -41,7 +41,7 @@ public class RequestController {
 
         UserService.loadUser();
         for(User i: UserService.getU()){
-            if(i.getRole().equals("Driver")&&i.getStatus().equals("Available")){
+            if(i.getRole().equals("Driver")&&i.getStatus().equals("Available") && i.getCity().equals(ClientPageController.getCurrent().getCity())){
                 soferi.add(i);
             }
         }
