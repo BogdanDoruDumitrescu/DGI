@@ -11,6 +11,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import org.fis.maven.Exceptions.InsufficientMoney;
 import org.fis.maven.Models.Race;
 import org.fis.maven.Models.User;
 import org.fis.maven.Services.RaceService;
@@ -29,6 +30,8 @@ public class RequestController {
     private TableView<User> table;
     @FXML
     private TableColumn<User,String> nameColumn;
+    @FXML
+    private Label error;
 
     private int total=0;
 
@@ -42,6 +45,8 @@ public class RequestController {
                 soferi.add(i);
             }
         }
+
+        error.setText("");
 
         table.setItems(FXCollections.observableArrayList(soferi));
         nameColumn.setCellValueFactory(new PropertyValueFactory<User, String>("name"));
@@ -67,9 +72,34 @@ public class RequestController {
 
     @FXML
     public void calcul(){
+        int ppk = Race.getPricePerKm();
+        int km = Integer.parseInt(kmField.getText());
+
+        total = ppk*km;
+
+        totalLabel.setText(String.valueOf(total));
     }
 
     @FXML
     public void send(){
+        String numesofer = table.getSelectionModel().getSelectedItem().getUsername();
+        String numeclient = ClientPageController.getCurrent().getUsername();
+        int km = Integer.parseInt(kmField.getText());
+        int ppk = Race.getPricePerKm();
+
+        this.calcul();
+
+        try {
+            if (ClientPageController.getCurrent().getCredit() - total < 0) {
+                throw new InsufficientMoney();
+            } else {
+                RaceService.getR().add(new Race(numesofer, numeclient, km, total, "Pending"));
+                RaceService.writeRace();
+
+                this.backButton();
+            }
+        }catch (InsufficientMoney e){
+            error.setText("Insufficient Money!");
+        }
     }
 }
