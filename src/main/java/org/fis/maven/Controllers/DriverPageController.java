@@ -75,6 +75,10 @@ public class DriverPageController {
 
     @FXML
     public void setButton() {
+        current.setStatus(choiceBox.getValue().toString());
+        UserService.writeUser();
+
+        this.initialize();
     }
 
     @FXML
