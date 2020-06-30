@@ -73,7 +73,7 @@ public class LoginClientController {
             else
                 throw new UserPasswordIncorrect();
         }catch (UserPasswordIncorrect e){
-            error.setText("Incorrect username or password!");
+            error.setText("Incorrect username or password or account is not confirmed!");
         }
     }
 }
