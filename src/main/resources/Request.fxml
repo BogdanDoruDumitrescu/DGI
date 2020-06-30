@@ -20,5 +20,6 @@
       <Label fx:id="totalLabel" layoutX="475.0" layoutY="200.0" text="Label" />
       <Button layoutX="463.0" layoutY="148.0" mnemonicParsing="false" onAction="#calcul" text="Calcul" />
       <Button layoutX="423.0" layoutY="325.0" mnemonicParsing="false" onAction="#send" text="Trimite" />
+      <Label layoutX="168.0" layoutY="299.0" text="Insufficient Money!" />
    </children>
 </AnchorPane>
