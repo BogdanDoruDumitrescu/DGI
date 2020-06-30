@@ -42,6 +42,15 @@ public class AdminMenuController {
     }
 
     public void confirm(){
+        try {
+            Stage stage = (Stage) id.getScene().getWindow();
+            Parent ceva = FXMLLoader.load(getClass().getClassLoader().getResource("Confirm.fxml"));
+            stage.setTitle("Confirm page");
+            stage.setScene(new Scene(ceva, 600, 600));
+            stage.show();
 
+        } catch (IOException e) {
+            System.out.println(e);
+        }
     }
 }
