@@ -35,8 +35,9 @@ public class UserService {
                 int credit = Integer.parseInt(o.get("credit").toString());
                 String status = o.get("status").toString();
                 boolean confirmed = Boolean.parseBoolean(o.get("confirmed").toString());
+                String city = o.get("city").toString();
 
-                u.add(new User(name, username, password, mail, role, credit, status, confirmed));
+                u.add(new User(name, username, password, mail, role, credit, status, confirmed, city));
             }
         }catch (Exception e){
             System.out.println(e);
@@ -82,6 +83,7 @@ public class UserService {
                 jo.put("credit",String.valueOf(i.getCredit()));
                 jo.put("status",i.getStatus());
                 jo.put("confirmed",String.valueOf(i.isConfirmed()));
+                jo.put("city",i.getCity());
 
                 ja.add(jo);
             }

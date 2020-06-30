@@ -33,6 +33,8 @@ public class RegisterController {
     private TextField creditField;
     @FXML
     private Label error;
+    @FXML
+    private TextField cityField;
 
     public void initialize(){
         role.getItems().addAll("Admin", "Driver", "Client");
@@ -74,7 +76,7 @@ public class RegisterController {
                     }
                 }
 
-                User user = new User(nameField.getText(), usernameField.getText(), UserService.encodePassword(passwordField.getText()), mailField.getText(), role.getValue().toString(), Integer.parseInt(creditField.getText()), false);
+                User user = new User(nameField.getText(), usernameField.getText(), UserService.encodePassword(passwordField.getText()), mailField.getText(), role.getValue().toString(), Integer.parseInt(creditField.getText()), false, cityField.getText());
                 UserService.getU().add(user);
                 if(role.getValue().equals("Driver")){
                     user.setStatus("Available");

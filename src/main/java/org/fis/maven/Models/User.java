@@ -8,11 +8,12 @@ public class User {
     private String mail;
     private String role;
     private String status = "";
+    private String city;
 
     private boolean logged = false;
     private boolean confirmed = false;
 
-    public User(String name, String username, String password, String mail, String role, int credit, boolean confirmed){
+    public User(String name, String username, String password, String mail, String role, int credit, boolean confirmed, String city){
         this.name=name;
         this.username=username;
         this.password=password;
@@ -20,9 +21,10 @@ public class User {
         this.role=role;
         this.credit=credit;
         this.confirmed = confirmed;
+        this.city = city;
     }
 
-    public User(String name, String username, String password, String mail, String role, int credit, String status, boolean confirmed) {
+    public User(String name, String username, String password, String mail, String role, int credit, String status, boolean confirmed, String city) {
         this.name = name;
         this.username = username;
         this.password = password;
@@ -31,6 +33,7 @@ public class User {
         this.role = role;
         this.status = status;
         this.confirmed = confirmed;
+        this.city = city;
     }
 
     public String getName(){return name;}
@@ -77,6 +80,14 @@ public class User {
         this.confirmed = confirmed;
     }
 
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -88,6 +99,7 @@ public class User {
         if(!mail.equals(user.mail)) return false;
         if(!role.equals(user.role)) return false;
         if(!confirmed==user.confirmed) return false;
+        if(!city.equals(user.city)) return false;
         return credit==user.credit;
     }
 
@@ -98,6 +110,7 @@ public class User {
         result = 31*result + password.hashCode();
         result = 31*result + mail.hashCode();
         result = 31*result + role.hashCode();
+        result = 31*result + city.hashCode();
         return result;
     }
 
@@ -111,6 +124,7 @@ public class User {
                 ", mail='" + mail + '\'' +
                 ", role='" + role + '\'' +
                 ", status='" + status + '\'' +
+                ", city='" + city + '\'' +
                 ", logged=" + logged +
                 ", confirmed=" + confirmed +
                 '}';
