@@ -77,5 +77,16 @@ public class RequestController {
 
     @FXML
     public void send(){
+        String numesofer = table.getSelectionModel().getSelectedItem().getUsername();
+        String numeclient = ClientPageController.getCurrent().getUsername();
+        int km = Integer.parseInt(kmField.getText());
+        int ppk = Race.getPricePerKm();
+
+        this.calcul();
+
+        RaceService.getR().add(new Race(numesofer, numeclient, km, total, "Pending"));
+        RaceService.writeRace();
+
+        this.backButton();
     }
 }
