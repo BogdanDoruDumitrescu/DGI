@@ -38,6 +38,7 @@ public class ConfirmController {
         table.setItems(FXCollections.observableArrayList(neconfirmati));
         mailColumn.setCellValueFactory(new PropertyValueFactory<User, String>("mail"));
         confirmedColumn.setCellValueFactory(new PropertyValueFactory<User, Boolean>("confirmed"));
+        table.getSelectionModel().select(0);
     }
 
     public void back(){
@@ -54,8 +55,10 @@ public class ConfirmController {
     }
 
     public void confirm(){
+        table.getSelectionModel().getSelectedItem().setConfirmed(true);
 
-
+        UserService.writeUser();
+        this.initialize();
     }
 
 
