@@ -22,8 +22,8 @@ public class AdminSetPriceController {
     public void back() {
         try {
             Stage stage = (Stage) priceField.getScene().getWindow();
-            Parent ceva = FXMLLoader.load(getClass().getClassLoader().getResource("Menu.fxml"));
-            stage.setTitle("Menu");
+            Parent ceva = FXMLLoader.load(getClass().getClassLoader().getResource("AdminMenu.fxml"));
+            stage.setTitle("Admin Menu");
             stage.setScene(new Scene(ceva, 600, 600));
             stage.show();
 
