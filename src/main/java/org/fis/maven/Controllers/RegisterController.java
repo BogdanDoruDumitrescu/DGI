@@ -74,7 +74,7 @@ public class RegisterController {
                     }
                 }
 
-                User user = new User(nameField.getText(), usernameField.getText(), UserService.encodePassword(passwordField.getText()), mailField.getText(), role.getValue().toString(), Integer.parseInt(creditField.getText()));
+                User user = new User(nameField.getText(), usernameField.getText(), UserService.encodePassword(passwordField.getText()), mailField.getText(), role.getValue().toString(), Integer.parseInt(creditField.getText()), false);
                 UserService.getU().add(user);
                 if(role.getValue().equals("Driver")){
                     user.setStatus("Available");
