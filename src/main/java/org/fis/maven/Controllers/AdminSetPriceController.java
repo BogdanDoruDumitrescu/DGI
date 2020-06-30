@@ -4,8 +4,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import org.fis.maven.Exceptions.NegativeAmount;
 import org.fis.maven.Models.Race;
 
 import java.io.IOException;
@@ -13,6 +15,8 @@ import java.io.IOException;
 public class AdminSetPriceController {
     @FXML
     private TextField priceField;
+    @FXML
+    private Label error;
 
     @FXML
     public void back() {
@@ -30,6 +34,15 @@ public class AdminSetPriceController {
 
     @FXML
     public void setPrice() {
-        Race.setPricePerKm(Integer.parseInt(priceField.getText()));
+        try {
+            if(Integer.parseInt(priceField.getText())<0){
+                throw new NegativeAmount();
+            }
+            Race.setPricePerKm(Integer.parseInt(priceField.getText()));
+            error.setText("");
+        }catch (NegativeAmount e){
+            error.setText("The amount is below 0!");
+        }
+
     }
 }

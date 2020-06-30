@@ -15,5 +15,6 @@
         <TextField fx:id="priceField" alignment="CENTER" layoutX="212.0" layoutY="187.0" />
       <Button layoutX="31.0" layoutY="25.0" mnemonicParsing="false" onAction="#back" text="Back" />
       <Label fx:id="mesaj" layoutX="388.0" layoutY="191.0" />
+      <Label fx:id="error" layoutX="212.0" layoutY="287.0" />
     </children>
 </AnchorPane>
