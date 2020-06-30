@@ -30,6 +30,6 @@ public class AdminSetPriceController {
 
     @FXML
     public void setPrice() {
-
+        Race.setPricePerKm(Integer.parseInt(priceField.getText()));
     }
 }
