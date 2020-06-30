@@ -96,5 +96,15 @@ public class DriverPageController {
     }
 
     public void requests(){
+        try {
+            Stage stage = (Stage) choiceBox.getScene().getWindow();
+            Parent ceva = FXMLLoader.load(getClass().getClassLoader().getResource("Pending.fxml"));
+            stage.setTitle("Login or Register Menu");
+            stage.setScene(new Scene(ceva, 600, 600));
+            stage.show();
+
+        } catch (IOException e) {
+            System.out.println(e);
+        }
     }
 }
