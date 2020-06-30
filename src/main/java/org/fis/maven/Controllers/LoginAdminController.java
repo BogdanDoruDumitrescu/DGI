@@ -53,8 +53,8 @@ public class LoginAdminController {
             try
             {
                 Stage stage=(Stage)idField.getScene().getWindow();
-                Parent ceva = FXMLLoader.load(getClass().getClassLoader().getResource("AdminSetPrice.fxml"));
-                stage.setTitle("Set Price");
+                Parent ceva = FXMLLoader.load(getClass().getClassLoader().getResource("AdminMenu.fxml"));
+                stage.setTitle("Admin Menu");
                 stage.setScene(new Scene(ceva,600,600));
                 stage.show();
 

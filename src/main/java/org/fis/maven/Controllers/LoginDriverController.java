@@ -74,7 +74,7 @@ public class LoginDriverController {
                 throw new UserPasswordIncorrect();
             }
         }catch (Exception e){
-            error.setText("Incorrect username or password!");
+            error.setText("Incorrect username or password or account is not confirmed!");
         }
     }
 

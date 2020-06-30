@@ -1,1 +1,1 @@
-[{"password":"ZGVuaXM=","role":"Driver","mail":"denis@gmail.com","name":"Denis","credit":"100","username":"denis","status":"Available"},{"password":"YW5kcmVp","role":"Client","mail":"andrei@gmail.com","name":"Andrei","credit":"100","username":"andrei","status":""}]
+[{"password":"ZGVuaXM=","role":"Driver","mail":"denis@gmail.com","name":"Denis","credit":"100","confirmed":"true","username":"denis","status":"Available"},{"password":"YW5kcmVp","role":"Client","mail":"andrei@gmail.com","name":"Andrei","credit":"100","confirmed":"true","username":"andrei","status":""}]
