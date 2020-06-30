@@ -83,6 +83,16 @@ public class DriverPageController {
 
     @FXML
     public void races() {
+        try {
+            Stage stage = (Stage) choiceBox.getScene().getWindow();
+            Parent ceva = FXMLLoader.load(getClass().getClassLoader().getResource("MyRaces.fxml"));
+            stage.setTitle("My Races");
+            stage.setScene(new Scene(ceva, 600, 600));
+            stage.show();
+
+        } catch (IOException e) {
+            System.out.println(e);
+        }
     }
 
     public void requests(){
