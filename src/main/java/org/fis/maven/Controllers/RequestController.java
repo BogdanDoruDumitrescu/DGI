@@ -67,6 +67,12 @@ public class RequestController {
 
     @FXML
     public void calcul(){
+        int ppk = Race.getPricePerKm();
+        int km = Integer.parseInt(kmField.getText());
+
+        total = ppk*km;
+
+        totalLabel.setText(String.valueOf(total));
     }
 
     @FXML
