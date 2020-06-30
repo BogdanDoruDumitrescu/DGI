@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fis.maven.Controllers.RequestController">
+   <children>
+      <Button layoutX="22.0" layoutY="29.0" mnemonicParsing="false" onAction="#backButton" text="Back" />
+      <TableView fx:id="table" layoutX="89.0" layoutY="73.0" prefHeight="200.0" prefWidth="200.0">
+        <columns>
+          <TableColumn fx:id="nameColumn" prefWidth="199.20001220703125" text="Nume" />
+        </columns>
+      </TableView>
+      <Label layoutX="96.0" layoutY="33.0" text="Selecteaza din soferii disponibili" />
+      <Label layoutX="333.0" layoutY="85.0" text="Price per km:" />
+      <Label fx:id="priceLabel" layoutX="461.0" layoutY="85.0" text="Label" />
+      <TextField fx:id="kmField" layoutX="415.0" layoutY="113.0" />
+      <Label layoutX="333.0" layoutY="117.0" text="KM:" />
+      <Label layoutX="328.0" layoutY="200.0" text="Pret total:" />
+      <Label fx:id="totalLabel" layoutX="475.0" layoutY="200.0" text="Label" />
+      <Button layoutX="463.0" layoutY="148.0" mnemonicParsing="false" onAction="#calcul" text="Calcul" />
+      <Button layoutX="423.0" layoutY="325.0" mnemonicParsing="false" onAction="#send" text="Trimite" />
+   </children>
+</AnchorPane>
