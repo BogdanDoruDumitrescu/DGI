@@ -80,7 +80,7 @@ public class ClientPageController {
         try {
             current.setLogged(false);
             Stage stage = (Stage) logoutButton.getScene().getWindow();
-            Parent ceva = FXMLLoader.load(getClass().getClassLoader().getResource("LogRegMenu.fxml"));
+            Parent ceva = FXMLLoader.load(getClass().getClassLoader().getResource("Menu.fxml"));
             stage.setTitle("Menu");
             stage.setScene(new Scene(ceva, 600, 600));
         } catch (Exception e) {
@@ -102,7 +102,14 @@ public class ClientPageController {
     }
 
     public void send(){
-
+        try {
+            Stage stage = (Stage) logoutButton.getScene().getWindow();
+            Parent ceva = FXMLLoader.load(getClass().getClassLoader().getResource("Request.fxml"));
+            stage.setTitle("Request");
+            stage.setScene(new Scene(ceva, 600, 600));
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 
     public static User getCurrent() {
