@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fis.maven.Controllers.PendingController">
+    <children>
+        <Button layoutX="405.0" layoutY="243.0" mnemonicParsing="false" onAction="#acceptButton" text="Accept" />
+        <Label layoutX="133.0" layoutY="64.0" text="Pending request">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+        <TableView fx:id="table" layoutX="34.0" layoutY="149.0" prefHeight="200.0" prefWidth="328.0">
+            <columns>
+                <TableColumn fx:id="kmColumn" prefWidth="75.0" text="Km" />
+                <TableColumn fx:id="priceColumn" prefWidth="75.0" text="Total Price" />
+                <TableColumn fx:id="clientColumn" prefWidth="100.0" text="Client" />
+                <TableColumn fx:id="statusColumn" prefWidth="75.0" text="Status" />
+            </columns>
+        </TableView>
+        <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backButton" text="Back" />
+    </children>
+</AnchorPane>

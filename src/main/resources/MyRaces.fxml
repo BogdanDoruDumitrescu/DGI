@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fis.maven.Controllers.MyRacesController">
+   <children>
+      <Button layoutX="33.0" layoutY="21.0" mnemonicParsing="false" onAction="#back" text="Back" />
+      <TableView fx:id="table" layoutX="98.0" layoutY="91.0" prefHeight="200.0" prefWidth="373.0">
+        <columns>
+          <TableColumn fx:id="kmColumn" prefWidth="61.20001220703125" text="KM" />
+          <TableColumn fx:id="priceColumn" prefWidth="72.39999389648438" text="Pret" />
+            <TableColumn fx:id="clientColumn" prefWidth="133.39999389648438" text="Client" />
+            <TableColumn fx:id="statusColumn" prefWidth="106.60003662109375" text="Status" />
+        </columns>
+      </TableView>
+      <Button layoutX="420.0" layoutY="327.0" mnemonicParsing="false" onAction="#finish" text="Finish" />
+   </children>
+</AnchorPane>
