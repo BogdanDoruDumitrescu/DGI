@@ -68,6 +68,9 @@ public class RegisterController {
                     }
                 }
 
+                if(nameField.getText().length()==0||usernameField.getText().length()==0||passwordField.getText().length()==0||mailField.getText().length()==0)
+                    throw new EmptyField();
+
                 AdminService.getA().add(new Admin(nameField.getText(), usernameField.getText(), AdminService.encodePassword(passwordField.getText()), mailField.getText()));
                 AdminService.writeAdmins();
                 error.setText("Done!");
@@ -94,7 +97,9 @@ public class RegisterController {
                     error.setText("One or more fields are empty!");
                 }
             }
-        }catch(Exception e){
+        }catch (EmptyField e) {
+            error.setText("One or more fields are empty!");
+        } catch(Exception e){
             error.setText("Account already exists!");
         }
     }
