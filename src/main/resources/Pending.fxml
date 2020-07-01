@@ -4,21 +4,21 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fis.maven.Controllers.PendingController">
+<AnchorPane prefHeight="412.0" prefWidth="600.0" style="-fx-background-color: #696969;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fis.maven.Controllers.PendingController">
     <children>
-        <Button layoutX="405.0" layoutY="243.0" mnemonicParsing="false" onAction="#acceptButton" text="Accept" />
-        <Label layoutX="133.0" layoutY="64.0" text="Pending request">
+        <Button layoutX="272.0" layoutY="350.0" mnemonicParsing="false" onAction="#acceptButton" style="-fx-background-color: #FF8C00;" text="Accept" />
+        <Label layoutX="239.0" layoutY="63.0" text="Pending request" textFill="DARKORANGE">
          <font>
             <Font size="18.0" />
          </font></Label>
-        <TableView fx:id="table" layoutX="34.0" layoutY="149.0" prefHeight="200.0" prefWidth="328.0">
+        <TableView fx:id="table" layoutX="136.0" layoutY="133.0" prefHeight="200.0" prefWidth="328.0">
             <columns>
-                <TableColumn fx:id="kmColumn" prefWidth="75.0" text="Km" />
-                <TableColumn fx:id="priceColumn" prefWidth="75.0" text="Total Price" />
-                <TableColumn fx:id="clientColumn" prefWidth="100.0" text="Client" />
-                <TableColumn fx:id="statusColumn" prefWidth="75.0" text="Status" />
+                <TableColumn fx:id="kmColumn" prefWidth="75.0" style="-fx-background-color: #FF8C00;" text="Km" />
+                <TableColumn fx:id="priceColumn" prefWidth="75.0" style="-fx-background-color: #FF8C00;" text="Total Price" />
+                <TableColumn fx:id="clientColumn" prefWidth="100.0" style="-fx-background-color: #FF8C00;" text="Client" />
+                <TableColumn fx:id="statusColumn" prefWidth="75.0" style="-fx-background-color: #FF8C00;" text="Status" />
             </columns>
         </TableView>
-        <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backButton" text="Back" />
+        <Button layoutX="42.0" layoutY="61.0" mnemonicParsing="false" onAction="#backButton" style="-fx-background-color: #FF8C00;" text="Back" />
     </children>
 </AnchorPane>

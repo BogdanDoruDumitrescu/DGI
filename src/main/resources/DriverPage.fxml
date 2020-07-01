@@ -4,34 +4,34 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fis.maven.Controllers.DriverPageController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #696969;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fis.maven.Controllers.DriverPageController">
    <children>
-      <Label layoutX="244.0" layoutY="14.0" text="Driver Page">
+      <Label layoutX="260.0" layoutY="65.0" text="Driver Page" textFill="DARKORANGE">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label fx:id="availabilyLabel" layoutX="88.0" layoutY="158.0" text="Availability">
+      <Label fx:id="availabilyLabel" layoutX="77.0" layoutY="202.0" text="Availability" textFill="DARKORANGE">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="withdrawLabel" layoutX="88.0" layoutY="200.0" prefHeight="27.0" prefWidth="150.0" text="Withdraw Money">
+      <Label fx:id="withdrawLabel" layoutX="77.0" layoutY="244.0" prefHeight="27.0" prefWidth="150.0" text="Withdraw Money" textFill="DARKORANGE">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="moneyField" layoutX="244.0" layoutY="201.0" />
-      <Button layoutX="411.0" layoutY="201.0" mnemonicParsing="false" onAction="#withdrawButton" text="Withdraw" />
-      <ChoiceBox fx:id="choiceBox" layoutX="243.0" layoutY="159.0" prefWidth="150.0" />
-      <Button layoutX="411.0" layoutY="158.0" mnemonicParsing="false" onAction="#setButton" prefHeight="26.0" prefWidth="67.0" text="Set" />
-      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#logout" text="Log out" />
-      <Label layoutX="88.0" layoutY="258.0" text="Credit:" />
-      <Label fx:id="creditLabel" layoutX="160.0" layoutY="258.0" text="Label" />
-      <Label layoutX="88.0" layoutY="300.0" text="Status:" />
-      <Label fx:id="statusLabel" layoutX="160.0" layoutY="300.0" text="Label" />
-      <Button layoutX="461.0" layoutY="27.0" mnemonicParsing="false" onAction="#races" text="My races" />
-      <Button layoutX="467.0" layoutY="80.0" mnemonicParsing="false" onAction="#requests" text="Cereri" />
-      <Label fx:id="error" layoutX="416.0" layoutY="258.0" text="Insufficient money!" />
+      <TextField fx:id="moneyField" layoutX="238.0" layoutY="244.0" promptText="Enter the amount" />
+      <Button layoutX="426.0" layoutY="244.0" mnemonicParsing="false" onAction="#withdrawButton" style="-fx-background-color: #FF8C00;" text="Withdraw" />
+      <ChoiceBox fx:id="choiceBox" layoutX="238.0" layoutY="200.0" prefWidth="150.0" />
+      <Button layoutX="426.0" layoutY="200.0" mnemonicParsing="false" onAction="#setButton" prefHeight="26.0" prefWidth="67.0" style="-fx-background-color: #FF8C00;" text="Set" />
+      <Button layoutX="47.0" layoutY="66.0" mnemonicParsing="false" onAction="#logout" style="-fx-background-color: #FF8C00;" text="Log out" />
+      <Label layoutX="87.0" layoutY="296.0" prefHeight="17.0" prefWidth="39.0" text="Credit:" textFill="DARKORANGE" />
+      <Label fx:id="creditLabel" layoutX="154.0" layoutY="296.0" text="Label" textFill="DARKORANGE" />
+      <Label layoutX="87.0" layoutY="332.0" text="Status:" textFill="DARKORANGE" />
+      <Label fx:id="statusLabel" layoutX="154.0" layoutY="332.0" text="Label" textFill="DARKORANGE" />
+      <Button layoutX="285.0" layoutY="156.0" mnemonicParsing="false" onAction="#races" style="-fx-background-color: #FF8C00;" text="My races" />
+      <Button layoutX="294.0" layoutY="109.0" mnemonicParsing="false" onAction="#requests" style="-fx-background-color: #FF8C00;" text="Cereri" />
+      <Label fx:id="error" layoutX="266.0" layoutY="296.0" text="Insufficient money!" textFill="DARKORANGE" />
    </children>
 </AnchorPane>
