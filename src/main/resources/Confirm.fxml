@@ -7,10 +7,10 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #696969;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fis.maven.Controllers.ConfirmController">
    <children>
       <Button layoutX="78.0" layoutY="74.0" mnemonicParsing="false" onAction="#back" style="-fx-background-color: #FF8C00;" text="Back" />
-      <TableView fx:id="table" layoutX="200.0" layoutY="124.0" prefHeight="200.0" prefWidth="200.0">
+      <TableView fx:id="table" layoutX="163.0" layoutY="126.0" prefHeight="200.0" prefWidth="275.0">
         <columns>
-          <TableColumn fx:id="mailColumn" prefWidth="101.0" style="-fx-background-color: #FF8C00;" text="Mail" />
-          <TableColumn fx:id="confirmedColumn" prefWidth="98.0" style="-fx-background-color: #FF8C00;" text="Confirmed" />
+          <TableColumn fx:id="mailColumn" prefWidth="160.0" style="-fx-background-color: #FF8C00;" text="Mail" />
+          <TableColumn fx:id="confirmedColumn" prefWidth="112.0" style="-fx-background-color: #FF8C00;" text="Confirmed" />
         </columns>
       </TableView>
       <Button layoutX="269.0" layoutY="359.0" mnemonicParsing="false" onAction="#confirm" style="-fx-background-color: #FF8C00;" text="Confirm" />
