@@ -1,5 +1,6 @@
 package org.fis.maven.Controllers;
 
+import com.sun.org.apache.xpath.internal.operations.Neg;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.fis.maven.Exceptions.InsufficientMoney;
+import org.fis.maven.Exceptions.NegativeAmount;
 import org.fis.maven.Models.User;
 import org.fis.maven.Services.UserService;
 
@@ -60,6 +62,9 @@ public class DriverPageController {
     @FXML
     public void withdrawButton() {
         try {
+            if(Integer.parseInt(moneyField.getText())<0) {
+                throw new NegativeAmount();
+            }
             if (current.getCredit() - Integer.parseInt(moneyField.getText()) >= 0) {
                 current.setCredit(current.getCredit() - Integer.parseInt(moneyField.getText()));
                 UserService.writeUser();
@@ -70,6 +75,10 @@ public class DriverPageController {
             }
         }catch (InsufficientMoney e){
             error.setText("Insufficient money!");
+        }catch (NegativeAmount e){
+            error.setText("Amount must be positive!");
+        }catch (Exception e){
+            error.setText("Amount must be integer!");
         }
     }
 

@@ -17,10 +17,11 @@
          <font>
             <Font size="14.0" />
          </font></Label>
-      <Button layoutX="290.0" layoutY="249.0" mnemonicParsing="false" onAction="#login" style="-fx-background-color: #FF8C00;" text="Login" />
+      <Button layoutX="277.0" layoutY="250.0" mnemonicParsing="false" onAction="#login" style="-fx-background-color: #FF8C00;" text="Login" />
       <Label layoutX="247.0" layoutY="89.0" text="Welcome, Admin!" textFill="DARKORANGE">
          <font>
             <Font size="18.0" />
          </font></Label>
+      <Label fx:id="error" layoutX="207.0" layoutY="305.0" text="Username or password is incorrect!" textFill="DARKORANGE" />
    </children>
 </AnchorPane>

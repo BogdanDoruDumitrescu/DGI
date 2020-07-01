@@ -42,6 +42,8 @@ public class AdminSetPriceController {
             error.setText("");
         }catch (NegativeAmount e){
             error.setText("The amount is below 0!");
+        }catch (Exception e){
+            error.setText("Price must be an integer!");
         }
 
     }

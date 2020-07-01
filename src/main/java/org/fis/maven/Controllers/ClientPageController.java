@@ -98,6 +98,8 @@ public class ClientPageController {
             this.initialize();
         }catch (LowAmount e){
             error.setText("Amount is under 50!");
+        }catch (Exception e){
+            error.setText("Amount must be an integer!");
         }
     }
 

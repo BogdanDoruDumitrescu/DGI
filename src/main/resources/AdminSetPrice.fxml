@@ -14,7 +14,6 @@
         </Label>
         <TextField fx:id="priceField" alignment="CENTER" layoutX="220.0" layoutY="186.0" promptText="Enter the price per km" />
       <Button layoutX="50.0" layoutY="95.0" mnemonicParsing="false" onAction="#back" style="-fx-background-color: #FF8C00;" text="Back" />
-      <Label fx:id="mesaj" layoutX="388.0" layoutY="191.0" />
-      <Label fx:id="error" layoutX="212.0" layoutY="287.0" />
+      <Label fx:id="error" layoutX="212.0" layoutY="287.0" textFill="DARKORANGE" />
     </children>
 </AnchorPane>

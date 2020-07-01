@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import org.fis.maven.Exceptions.InsufficientMoney;
+import org.fis.maven.Exceptions.NegativeAmount;
 import org.fis.maven.Models.Race;
 import org.fis.maven.Models.User;
 import org.fis.maven.Services.RaceService;
@@ -72,34 +73,53 @@ public class RequestController {
 
     @FXML
     public void calcul(){
-        int ppk = Race.getPricePerKm();
-        int km = Integer.parseInt(kmField.getText());
+        try {
+            if(Integer.parseInt(kmField.getText())<=0){
+                throw new NegativeAmount();
+            }
 
-        total = ppk*km;
+            int ppk = Race.getPricePerKm();
+            int km = Integer.parseInt(kmField.getText());
 
-        totalLabel.setText(String.valueOf(total));
+            total = ppk * km;
+
+            totalLabel.setText(String.valueOf(total));
+        }catch (NegativeAmount e){
+            error.setText("KM amount is under 0!");
+        }catch (Exception e){
+            error.setText("KM amount must be integer!");
+        }
     }
 
     @FXML
     public void send(){
-        String numesofer = table.getSelectionModel().getSelectedItem().getUsername();
-        String numeclient = ClientPageController.getCurrent().getUsername();
-        int km = Integer.parseInt(kmField.getText());
-        int ppk = Race.getPricePerKm();
-
-        this.calcul();
-
         try {
-            if (ClientPageController.getCurrent().getCredit() - total < 0) {
-                throw new InsufficientMoney();
-            } else {
-                RaceService.getR().add(new Race(numesofer, numeclient, km, total, "Pending"));
-                RaceService.writeRace();
+            String numesofer = table.getSelectionModel().getSelectedItem().getUsername();
+            String numeclient = ClientPageController.getCurrent().getUsername();
+            int km = Integer.parseInt(kmField.getText());
+            int ppk = Race.getPricePerKm();
 
-                this.backButton();
+            this.calcul();
+
+            try {
+                if (Integer.parseInt(kmField.getText()) < 0) {
+                    throw new NegativeAmount();
+                }
+                if (ClientPageController.getCurrent().getCredit() - total < 0) {
+                    throw new InsufficientMoney();
+                } else {
+                    RaceService.getR().add(new Race(numesofer, numeclient, km, total, "Pending"));
+                    RaceService.writeRace();
+
+                    this.backButton();
+                }
+            } catch (InsufficientMoney e) {
+                error.setText("Insufficient Money!");
+            } catch (NegativeAmount e) {
+                error.setText("KM amount is under 0!");
             }
-        }catch (InsufficientMoney e){
-            error.setText("Insufficient Money!");
+        }catch (Exception e){
+            error.setText("KM amount must be integer!");
         }
     }
 }
