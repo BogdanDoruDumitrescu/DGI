@@ -16,11 +16,11 @@ import java.io.IOException;
 
 public class LoginAdminController {
     @FXML
-    private TextField idField;
+    TextField idField;
     @FXML
-    private PasswordField passField;
+    PasswordField passField;
     @FXML
-    private Label error;
+    Label error;
 
     @FXML
     public void initialize(){
@@ -63,7 +63,7 @@ public class LoginAdminController {
                 stage.setScene(new Scene(ceva,600,600));
                 stage.show();
 
-            }catch(IOException e) {
+            }catch(Exception e) {
                 System.out.println(e);
             }
         }else {

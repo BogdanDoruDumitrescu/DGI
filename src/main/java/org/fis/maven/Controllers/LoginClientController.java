@@ -17,13 +17,13 @@ import java.util.ArrayList;
 
 public class LoginClientController {
     @FXML
-    private Label id;
+    Label id;
     @FXML
-    private TextField usernameField;
+    TextField usernameField;
     @FXML
-    private PasswordField passwordField;
+    PasswordField passwordField;
     @FXML
-    private Label error;
+    Label error;
 
     @FXML
     public void initialize(){

@@ -16,11 +16,11 @@ import java.io.IOException;
 
 public class LoginDriverController {
     @FXML
-    private TextField idField;
+    TextField idField;
     @FXML
-    private PasswordField passField;
+    PasswordField passField;
     @FXML
-    private Label error;
+    Label error;
 
     private static User current;
 
@@ -67,7 +67,7 @@ public class LoginDriverController {
                     stage.setScene(new Scene(ceva,600,600));
                     stage.show();
 
-                }catch(IOException e) {
+                }catch(Exception e) {
                     System.out.println(e);
                 }
             }else{
