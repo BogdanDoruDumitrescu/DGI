@@ -6,9 +6,9 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #696969;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fis.maven.Controllers.RequestController">
    <children>
       <Button layoutX="23.0" layoutY="63.0" mnemonicParsing="false" onAction="#backButton" style="-fx-background-color: #FF8C00;" text="Back" />
-      <TableView fx:id="table" layoutX="83.0" layoutY="109.0" prefHeight="200.0" prefWidth="200.0">
+      <TableView fx:id="table" layoutX="83.0" layoutY="109.0" prefHeight="200.0" prefWidth="194.0">
         <columns>
-          <TableColumn fx:id="nameColumn" prefWidth="199.20001220703125" style="-fx-background-color: #FF8C00;" text="Nume" />
+          <TableColumn fx:id="nameColumn" prefWidth="199.00001525878906" style="-fx-background-color: #FF8C00;" text="Nume" />
         </columns>
       </TableView>
       <Label layoutX="97.0" layoutY="68.0" text="Selecteaza din soferii disponibili" textFill="DARKORANGE" />
