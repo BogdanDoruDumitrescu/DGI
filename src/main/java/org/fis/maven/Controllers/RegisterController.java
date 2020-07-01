@@ -70,6 +70,7 @@ public class RegisterController {
 
                 AdminService.getA().add(new Admin(nameField.getText(), usernameField.getText(), AdminService.encodePassword(passwordField.getText()), mailField.getText()));
                 AdminService.writeAdmins();
+                error.setText("Done!");
             } else {
                 for(User i: UserService.getU()){
                     if(i.getUsername().equals(usernameField.getText())){
