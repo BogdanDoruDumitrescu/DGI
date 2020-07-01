@@ -21,21 +21,21 @@ import java.io.IOException;
 
 public class RegisterController {
     @FXML
-    private TextField nameField;
+    TextField nameField;
     @FXML
-    private TextField usernameField;
+    TextField usernameField;
     @FXML
-    private PasswordField passwordField;
+    PasswordField passwordField;
     @FXML
-    private TextField mailField;
+    TextField mailField;
     @FXML
-    private ChoiceBox role;
+    ChoiceBox role;
     @FXML
-    private TextField creditField;
+    TextField creditField;
     @FXML
-    private Label error;
+    Label error;
     @FXML
-    private TextField cityField;
+    TextField cityField;
 
     public void initialize(){
         role.getItems().addAll("Admin", "Driver", "Client");
@@ -82,7 +82,7 @@ public class RegisterController {
                 }
 
                 try {
-                    if(nameField.getText().length()==0||usernameField.getText().length()==0||passwordField.getText().length()==0||mailField.getText().length()==0||cityField.getText().length()==0)
+                    if(nameField.getText().length()==0||usernameField.getText().length()==0||passwordField.getText().length()==0||mailField.getText().length()==0||cityField.getText().length()==0||creditField.getText().length()==0)
                         throw new EmptyField();
                     User user = new User(nameField.getText(), usernameField.getText(), UserService.encodePassword(passwordField.getText()), mailField.getText(), role.getValue().toString(), Integer.parseInt(creditField.getText()), false, cityField.getText());
                     UserService.getU().add(user);
