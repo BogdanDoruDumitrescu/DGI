@@ -19,24 +19,22 @@ import java.util.ArrayList;
 
 public class MyRacesController {
     @FXML
-    private User current;
+    private static User current;
     @FXML
-    private TableView<Race> table;
+    TableView<Race> table;
     @FXML
-    private TableColumn<Race, Integer> kmColumn;
+    TableColumn<Race, Integer> kmColumn;
     @FXML
-    private TableColumn<Race, Integer> priceColumn;
+    TableColumn<Race, Integer> priceColumn;
     @FXML
-    private TableColumn<Race, String> clientColumn;
+    TableColumn<Race, String> clientColumn;
     @FXML
-    private TableColumn<Race, String> statusColumn;
-
-    public MyRacesController() {
-        current = LoginDriverController.getCurrent();
-    }
+    TableColumn<Race, String> statusColumn;
 
     @FXML
     public void initialize() {
+        current = LoginDriverController.getCurrent();
+
         ArrayList<Race> curse = new ArrayList<>();
 
         RaceService.loadRaces();
@@ -90,5 +88,13 @@ public class MyRacesController {
         } catch (IOException e) {
             System.out.println(e);
         }
+    }
+
+    public static User getCurrent() {
+        return current;
+    }
+
+    public static void setCurrent(User current) {
+        MyRacesController.current = current;
     }
 }
