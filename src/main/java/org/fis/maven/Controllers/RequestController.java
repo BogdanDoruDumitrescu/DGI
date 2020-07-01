@@ -22,17 +22,17 @@ import java.util.ArrayList;
 
 public class RequestController {
     @FXML
-    private Label priceLabel;
+    Label priceLabel;
     @FXML
-    private Label totalLabel;
+    Label totalLabel;
     @FXML
-    private TextField kmField;
+    TextField kmField;
     @FXML
-    private TableView<User> table;
+    TableView<User> table;
     @FXML
-    private TableColumn<User,String> nameColumn;
+    TableColumn<User,String> nameColumn;
     @FXML
-    private Label error;
+    Label error;
 
     private int total=0;
 
@@ -94,8 +94,9 @@ public class RequestController {
     @FXML
     public void send(){
         try {
-            String numesofer = table.getSelectionModel().getSelectedItem().getUsername();
-            String numeclient = ClientPageController.getCurrent().getUsername();
+            String driverName = table.getSelectionModel().getSelectedItem().getUsername();
+            String clientName = ClientPageController.getCurrent().getUsername();
+
             int km = Integer.parseInt(kmField.getText());
             int ppk = Race.getPricePerKm();
 
@@ -108,7 +109,7 @@ public class RequestController {
                 if (ClientPageController.getCurrent().getCredit() - total < 0) {
                     throw new InsufficientMoney();
                 } else {
-                    RaceService.getR().add(new Race(numesofer, numeclient, km, total, "Pending"));
+                    RaceService.getR().add(new Race(driverName, clientName, km, total, "Pending"));
                     RaceService.writeRace();
 
                     this.backButton();

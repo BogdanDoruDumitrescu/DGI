@@ -14,9 +14,9 @@ import java.io.IOException;
 
 public class AdminSetPriceController {
     @FXML
-    private TextField priceField;
+    TextField priceField;
     @FXML
-    private Label error;
+    Label error;
 
     @FXML
     public void back() {

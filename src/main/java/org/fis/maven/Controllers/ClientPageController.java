@@ -21,26 +21,26 @@ import java.util.ArrayList;
 public class ClientPageController {
 
     @FXML
-    private Button logoutButton;
+    Button logoutButton;
     @FXML
-    private javafx.scene.control.TableView<Race> tableID;
+    javafx.scene.control.TableView<Race> tableID;
     @FXML
-    private javafx.scene.control.TableColumn<Race, String> driverColumn;
+    javafx.scene.control.TableColumn<Race, String> driverColumn;
     @FXML
-    private javafx.scene.control.TableColumn<Race, String> statusColumn;
+    javafx.scene.control.TableColumn<Race, String> statusColumn;
     @FXML
-    private javafx.scene.control.TableColumn<Race, Integer> kmColumn;
+    javafx.scene.control.TableColumn<Race, Integer> kmColumn;
     @FXML
-    private javafx.scene.control.TableColumn<Race, Integer> priceColumn;
+    javafx.scene.control.TableColumn<Race, Integer> priceColumn;
 
     @FXML
-    private Label creditLabel;
+    Label creditLabel;
     @FXML
-    private Label userLabel;
+    Label userLabel;
     @FXML
-    private TextField moneyField;
+    TextField moneyField;
     @FXML
-    private Label error;
+    Label error;
 
     private static User current;
 
@@ -116,5 +116,9 @@ public class ClientPageController {
 
     public static User getCurrent() {
         return current;
+    }
+
+    public static void setCurrent(User current) {
+        ClientPageController.current = current;
     }
 }

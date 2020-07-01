@@ -19,11 +19,11 @@ import java.util.ArrayList;
 
 public class ConfirmController {
     @FXML
-    private TableView<User> table;
+    TableView<User> table;
     @FXML
-    private TableColumn<User, String> mailColumn;
+    TableColumn<User, String> mailColumn;
     @FXML
-    private TableColumn<User, Boolean> confirmedColumn;
+    TableColumn<User, Boolean> confirmedColumn;
 
     public void initialize(){
         UserService.loadUser();
