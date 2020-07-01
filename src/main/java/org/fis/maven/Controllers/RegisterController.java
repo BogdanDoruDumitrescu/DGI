@@ -11,6 +11,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.fis.maven.Exceptions.AlreadyExists;
+import org.fis.maven.Exceptions.EmptyField;
 import org.fis.maven.Models.Admin;
 import org.fis.maven.Models.User;
 import org.fis.maven.Services.AdminService;
@@ -76,13 +77,21 @@ public class RegisterController {
                     }
                 }
 
-                User user = new User(nameField.getText(), usernameField.getText(), UserService.encodePassword(passwordField.getText()), mailField.getText(), role.getValue().toString(), Integer.parseInt(creditField.getText()), false, cityField.getText());
-                UserService.getU().add(user);
-                if(role.getValue().equals("Driver")){
-                    user.setStatus("Available");
+                try {
+                    if(nameField.getText().length()==0||usernameField.getText().length()==0||passwordField.getText().length()==0||mailField.getText().length()==0||cityField.getText().length()==0)
+                        throw new EmptyField();
+                    User user = new User(nameField.getText(), usernameField.getText(), UserService.encodePassword(passwordField.getText()), mailField.getText(), role.getValue().toString(), Integer.parseInt(creditField.getText()), false, cityField.getText());
+                    UserService.getU().add(user);
+                    if (role.getValue().equals("Driver")) {
+                        user.setStatus("Available");
+                    }
+                    UserService.writeUser();
+                    error.setText("Done!");
+                }catch (NumberFormatException e){
+                    error.setText("Credit must be an integer!");
+                }catch (Exception e){
+                    error.setText("One or more fields are empty!");
                 }
-                UserService.writeUser();
-                error.setText("Done!");
             }
         }catch(Exception e){
             error.setText("Account already exists!");

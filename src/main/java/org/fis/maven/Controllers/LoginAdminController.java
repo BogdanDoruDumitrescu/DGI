@@ -4,9 +4,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import org.fis.maven.Exceptions.UserPasswordIncorrect;
 import org.fis.maven.Models.Admin;
 import org.fis.maven.Services.AdminService;
 
@@ -17,9 +19,12 @@ public class LoginAdminController {
     private TextField idField;
     @FXML
     private PasswordField passField;
+    @FXML
+    private Label error;
 
     @FXML
     public void initialize(){
+        error.setText("");
         AdminService.loadAdmins();
     }
 
@@ -60,6 +65,12 @@ public class LoginAdminController {
 
             }catch(IOException e) {
                 System.out.println(e);
+            }
+        }else {
+            try{
+                throw new UserPasswordIncorrect();
+            }catch (UserPasswordIncorrect e){
+                error.setText("Username or password is incorrect!");
             }
         }
     }
