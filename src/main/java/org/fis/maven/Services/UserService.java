@@ -44,18 +44,15 @@ public class UserService {
         }
     }
 
-    public static boolean checkCredentials(String id, String pass){
-        boolean found = false;
-
+    public static User checkCredentials(String id, String pass, String role){
+        User aux = null;
         for(User i:u){
-            if(i.getUsername().equals(id) && i.getPassword().equals(pass) && i.isConfirmed()){
-                found=true;
+            if(i.getUsername().equals(id) && i.getPassword().equals(pass) && i.isConfirmed() && i.getRole().equals(role)){
+                aux=i;
                 break;
             }
         }
-
-
-        return found;
+        return aux;
     }
 
     public static String encodePassword(String password){

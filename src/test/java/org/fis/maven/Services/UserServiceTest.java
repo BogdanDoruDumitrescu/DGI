@@ -9,8 +9,7 @@ import org.testfx.framework.junit.ApplicationTest;
 
 import javax.jws.soap.SOAPBinding;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class UserServiceTest extends ApplicationTest {
     @BeforeClass
@@ -52,7 +51,7 @@ public class UserServiceTest extends ApplicationTest {
         User u = new User("", "u", "u", "", "", 0, true, "");
         UserService.getU().add(u);
 
-        assertTrue(UserService.checkCredentials("u","u"));
+        assertNotEquals(null,UserService.checkCredentials("u","u", ""));
 
     }
 
