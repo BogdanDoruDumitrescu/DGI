@@ -18,17 +18,17 @@ import java.io.IOException;
 
 public class DriverPageController {
     @FXML
-    private ChoiceBox choiceBox;
+    ChoiceBox choiceBox;
     @FXML
-    private Label statusLabel;
+    Label statusLabel;
     @FXML
-    private Label creditLabel;
+    Label creditLabel;
     @FXML
-    private TextField moneyField;
+    TextField moneyField;
     @FXML
-    private Label error;
+    Label error;
 
-    private User current;
+    private static User current;
 
     @FXML
     public void initialize() {
@@ -54,7 +54,7 @@ public class DriverPageController {
             stage.setScene(new Scene(ceva, 600, 600));
             stage.show();
 
-        } catch (IOException e) {
+        } catch (Exception e) {
             System.out.println(e);
         }
     }
@@ -115,5 +115,13 @@ public class DriverPageController {
         } catch (IOException e) {
             System.out.println(e);
         }
+    }
+
+    public static User getCurrent() {
+        return current;
+    }
+
+    public static void setCurrent(User current) {
+        DriverPageController.current = current;
     }
 }
