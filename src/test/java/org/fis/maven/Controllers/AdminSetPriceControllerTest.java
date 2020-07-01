@@ -1,5 +1,7 @@
 package org.fis.maven.Controllers;
 
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import org.fis.maven.Models.Race;
 import org.fis.maven.Services.RaceService;
 import org.junit.Before;
@@ -13,12 +15,19 @@ public class AdminSetPriceControllerTest extends ApplicationTest {
 
     @Before
     public void setUp(){
+        controller = new AdminSetPriceController();
+        controller.priceField = new TextField();
+        controller.error = new Label();
+
         Race.setPricePerKm(0);
     }
 
     @Test
     public void changePrice(){
-        Race.setPricePerKm(20);
+        controller.priceField.setText("20");
+
+        controller.setPrice();
+
         assertEquals(20, Race.getPricePerKm());
     }
 }
