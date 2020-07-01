@@ -22,6 +22,6 @@
          <font>
             <Font size="18.0" />
          </font></Label>
-      <Label fx:id="error" layoutX="234.0" layoutY="304.0" text="Incorrect username or password!" textFill="DARKORANGE" />
+      <Label fx:id="error" layoutX="159.0" layoutY="311.0" text="Incorrect username or password or account is not confirmed!" textFill="DARKORANGE" />
    </children>
 </AnchorPane>

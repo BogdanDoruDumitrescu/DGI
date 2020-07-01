@@ -6,7 +6,7 @@
 
 <AnchorPane prefHeight="474.0" prefWidth="600.0" style="-fx-background-color: #696969;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fis.maven.Controllers.RegisterController">
     <children>
-        <Button layoutX="260.0" layoutY="388.0" mnemonicParsing="false" onAction="#signUp" style="-fx-background-color: #FF8C00;" text="Sign up">
+        <Button layoutX="260.0" layoutY="398.0" mnemonicParsing="false" onAction="#signUp" style="-fx-background-color: #FF8C00;" text="Sign up">
             <font>
                 <Font size="18.0" />
             </font>
@@ -52,7 +52,7 @@
             <Font size="18.0" />
          </font></Label>
       <ChoiceBox fx:id="role" layoutX="220.0" layoutY="308.0" prefWidth="150.0" />
-      <Label fx:id="error" layoutX="232.0" layoutY="431.0" text="Account already exists!" textFill="DARKORANGE" />
+      <Label fx:id="error" alignment="CENTER" layoutX="232.0" layoutY="443.0" prefHeight="17.0" prefWidth="137.0" text="Account already exists!" textFill="DARKORANGE" />
       <TextField fx:id="cityField" layoutX="220.0" layoutY="351.0" promptText="Enter your city" />
       <Label layoutX="169.0" layoutY="353.0" text="City" textFill="DARKORANGE">
          <font>
