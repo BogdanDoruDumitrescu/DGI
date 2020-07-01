@@ -4,49 +4,49 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fis.maven.Controllers.ClientPageController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #696969;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fis.maven.Controllers.ClientPageController">
    <children>
-      <Button layoutX="421.0" layoutY="313.0" mnemonicParsing="false" onAction="#addMoney" text="Adauga">
+      <Button layoutX="422.0" layoutY="316.0" mnemonicParsing="false" onAction="#addMoney" style="-fx-background-color: #FF8C00;" text="Adauga">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Label layoutX="78.0" layoutY="315.0" text="Adauga Bani">
+      <Label layoutX="102.0" layoutY="318.0" text="Adauga Bani" textFill="DARKORANGE">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="moneyField" layoutX="226.0" layoutY="316.0" />
-      <TableView fx:id="tableID" layoutX="29.0" layoutY="74.0" prefHeight="200.0" prefWidth="300.0">
+      <TextField fx:id="moneyField" layoutX="226.0" layoutY="316.0" promptText="Enter the amount" />
+      <TableView fx:id="tableID" layoutX="101.0" layoutY="75.0" prefHeight="200.0" prefWidth="300.0">
         <columns>
-           <TableColumn fx:id="driverColumn" prefWidth="75.0" text="With Driver" />
-            <TableColumn fx:id="kmColumn" prefWidth="75.0" text="Km parcursi" />
-          <TableColumn fx:id="priceColumn" prefWidth="75.0" text="Plata Cursa" />
-            <TableColumn fx:id="statusColumn" prefWidth="75.0" text="Status" />
+           <TableColumn fx:id="driverColumn" prefWidth="75.0" style="-fx-background-color: #FF8C00;" text="With Driver" />
+            <TableColumn fx:id="kmColumn" prefWidth="75.0" style="-fx-background-color: #FF8C00;" text="Km parcursi" />
+          <TableColumn fx:id="priceColumn" prefWidth="75.0" style="-fx-background-color: #FF8C00;" text="Plata Cursa" />
+            <TableColumn fx:id="statusColumn" prefWidth="75.0" style="-fx-background-color: #FF8C00;" text="Status" />
         </columns>
       </TableView>
-      <Label layoutX="119.0" layoutY="17.0" prefHeight="30.0" prefWidth="119.0" text="Istoric curse">
+      <Label layoutX="241.0" layoutY="19.0" prefHeight="30.0" prefWidth="119.0" text="Istoric curse" textFill="DARKORANGE">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="343.0" layoutY="74.0" text="Depozit">
+      <Label layoutX="425.0" layoutY="75.0" text="Depozit" textFill="DARKORANGE">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="creditLabel" layoutX="434.0" layoutY="74.0" prefHeight="26.0" prefWidth="41.0" text="1000">
+      <Label fx:id="creditLabel" layoutX="516.0" layoutY="73.0" prefHeight="26.0" prefWidth="41.0" text="1000" textFill="DARKORANGE">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="userLabel" layoutX="343.0" layoutY="18.0" text="Username">
+      <Label fx:id="userLabel" layoutX="425.0" layoutY="21.0" text="Username" textFill="DARKORANGE">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Button fx:id="logoutButton" layoutX="7.0" layoutY="7.0" mnemonicParsing="false" onAction="#logOut" text="Log Out" />
-      <Button layoutX="489.0" layoutY="248.0" mnemonicParsing="false" onAction="#send" text="Send Request" />
-      <Label fx:id="error" layoutX="91.0" layoutY="354.0" text="Amount is under 50!" />
+      <Button fx:id="logoutButton" layoutX="101.0" layoutY="21.0" mnemonicParsing="false" onAction="#logOut" style="-fx-background-color: #FF8C00;" text="Log Out" />
+      <Button layoutX="425.0" layoutY="248.0" mnemonicParsing="false" onAction="#send" style="-fx-background-color: #FF8C00;" text="Send Request" />
+      <Label fx:id="error" layoutX="251.0" layoutY="353.0" text="Amount is under 50!" textFill="DARKORANGE" />
    </children>
 </AnchorPane>
