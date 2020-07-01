@@ -22,15 +22,15 @@ public class PendingController {
     @FXML
     private User current;
     @FXML
-    private TableView<Race> table;
+    TableView<Race> table;
     @FXML
-    private TableColumn<Race, Integer> kmColumn;
+    TableColumn<Race, Integer> kmColumn;
     @FXML
-    private TableColumn<Race, Integer> priceColumn;
+    TableColumn<Race, Integer> priceColumn;
     @FXML
-    private TableColumn<Race, String> clientColumn;
+    TableColumn<Race, String> clientColumn;
     @FXML
-    private TableColumn<Race, String> statusColumn;
+    TableColumn<Race, String> statusColumn;
 
     public PendingController(){
         current = LoginDriverController.getCurrent();
