@@ -40,6 +40,7 @@ public class RegisterController {
     TextField cityField;
 
     public void initialize(){
+        role.getItems().clear();
         role.getItems().addAll("Admin", "Driver", "Client");
         role.setValue("Driver");
         AdminService.loadAdmins();

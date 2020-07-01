@@ -48,17 +48,11 @@ public class LoginDriverController {
     @FXML
     public void login(){
         try {
-            if(UserService.checkCredentials(idField.getText(), UserService.encodePassword(passField.getText()))){
+            current = UserService.checkCredentials(idField.getText(), UserService.encodePassword(passField.getText()), "Driver");
+            if(current!=null){
                 error.setText("");
                 try
                 {
-                    for(User i:UserService.getU()){
-                        if(i.getUsername().equals(idField.getText())&&i.getRole().equals("Driver")){
-                            current = i;
-                            break;
-                        }
-                    }
-
                     current.setLogged(true);
 
                     Stage stage=(Stage)idField.getScene().getWindow();

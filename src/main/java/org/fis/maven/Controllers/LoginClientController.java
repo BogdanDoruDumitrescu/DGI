@@ -50,29 +50,23 @@ public class LoginClientController {
 
     public void login() {
         try {
-            if (UserService.checkCredentials(usernameField.getText(), UserService.encodePassword(passwordField.getText()))){
+            User current = UserService.checkCredentials(usernameField.getText(), UserService.encodePassword(passwordField.getText()), "Client");
+            if (current != null) {
                 error.setText("");
-                try{
-                    ArrayList<User> u = UserService.getU();
-                    for(User i:u){
-                        if(usernameField.getText().equals(i.getUsername())&&i.getRole().equals("Client")){
-                            i.setLogged(true);
-                        }
-                    }
-
-                    Stage stage=(Stage)id.getScene().getWindow();
+                try {
+                    current.setLogged(true);
+                    Stage stage = (Stage) id.getScene().getWindow();
                     Parent ceva = FXMLLoader.load(getClass().getClassLoader().getResource("ClientPage.fxml"));
                     stage.setTitle("Client Page");
-                    stage.setScene(new Scene(ceva,800,600));
+                    stage.setScene(new Scene(ceva, 800, 600));
                     stage.show();
 
-                }catch (Exception e){
+                } catch (Exception e) {
                     System.out.println(e);
                 }
-            }
-            else
+            } else
                 throw new UserPasswordIncorrect();
-        }catch (UserPasswordIncorrect e){
+        } catch (UserPasswordIncorrect e) {
             error.setText("Incorrect username or password or account is not confirmed!");
         }
     }
