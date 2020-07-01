@@ -34,6 +34,7 @@ public class DriverPageController {
     public void initialize() {
         current = LoginDriverController.getCurrent();
 
+        choiceBox.getItems().clear();
         choiceBox.getItems().addAll("Available", "Working");
         choiceBox.setValue("Available");
 
