@@ -2,6 +2,7 @@ package org.fis.maven.Controllers;
 
 import javafx.scene.control.*;
 import org.fis.maven.Models.User;
+import org.fis.maven.Services.UserService;
 import org.junit.Before;
 import org.junit.Test;
 import org.testfx.framework.junit.ApplicationTest;
@@ -41,7 +42,9 @@ public class ClientPageControllerTest extends ApplicationTest {
 
     @Test
     public void addMoney(){
-        User u = new User("", "", "", "", "", 0, false, "");
+        UserService.loadUser();
+        UserService.getU().clear();
+        User u = new User("name", "username", "pass", "mail", "Client", 0, true, "Timisoara");
         ClientPageController.setCurrent(u);
 
         controller.moneyField.setText("50");
