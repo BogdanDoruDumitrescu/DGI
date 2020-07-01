@@ -135,4 +135,21 @@ public class RegisterControllerTest extends ApplicationTest {
 
         assertEquals("Credit must be an integer!", controller.error.getText());
     }
+
+    @Test
+    public void registerUserNegativeCredit(){
+        UserService.loadUser();
+
+        controller.usernameField.setText("user");
+        controller.nameField.setText("user");
+        controller.mailField.setText("mail");
+        controller.passwordField.setText("user");
+        controller.role.setValue("Client");
+        controller.cityField.setText("city");
+        controller.creditField.setText("-5");
+
+        controller.signUp();
+
+        assertEquals("The amount is below 0!", controller.error.getText());
+    }
 }

@@ -12,6 +12,8 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.fis.maven.Exceptions.AlreadyExists;
 import org.fis.maven.Exceptions.EmptyField;
+import org.fis.maven.Exceptions.LowAmount;
+import org.fis.maven.Exceptions.NegativeAmount;
 import org.fis.maven.Models.Admin;
 import org.fis.maven.Models.User;
 import org.fis.maven.Services.AdminService;
@@ -84,6 +86,8 @@ public class RegisterController {
                 try {
                     if(nameField.getText().length()==0||usernameField.getText().length()==0||passwordField.getText().length()==0||mailField.getText().length()==0||cityField.getText().length()==0||creditField.getText().length()==0)
                         throw new EmptyField();
+                    if(Integer.parseInt(creditField.getText())<0)
+                        throw new NegativeAmount();
                     User user = new User(nameField.getText(), usernameField.getText(), UserService.encodePassword(passwordField.getText()), mailField.getText(), role.getValue().toString(), Integer.parseInt(creditField.getText()), false, cityField.getText());
                     UserService.getU().add(user);
                     if (role.getValue().equals("Driver")) {
@@ -91,6 +95,8 @@ public class RegisterController {
                     }
                     UserService.writeUser();
                     error.setText("Done!");
+                }catch (NegativeAmount e){
+                    error.setText("The amount is below 0!");
                 }catch (NumberFormatException e){
                     error.setText("Credit must be an integer!");
                 }catch (Exception e){
